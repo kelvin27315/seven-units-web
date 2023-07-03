@@ -4,7 +4,7 @@ export default {
   selfURL: import.meta.url,
   theme: {
     fontFamily: {
-      sans: ["M PLUS 1P"]
-    }
-  }
+      sans: ["M PLUS 1P"],
+    },
+  },
 } as Options;
