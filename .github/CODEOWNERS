@@ -2,4 +2,4 @@
 
 # 自動マージのために指定しない
 /package.json
-/bun.lockb
+/package-lock.json
