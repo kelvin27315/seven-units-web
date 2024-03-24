@@ -1,63 +1,44 @@
 import { Hono } from "hono";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { ssgParams } from "hono/ssg";
+import { Layout } from "./components/Layout";
+import { works } from "./data/work";
+import { Index } from "./pages";
+import { History } from "./pages/history";
+import { Index as Works } from "./pages/works";
+import { Work } from "./pages/works/[slug]";
 
 const app = new Hono();
 
 app.all(
   "*",
-  jsxRenderer(({ children }) => {
-    return (
-      <html lang="ja">
-        <meta charset="urf-8" />
-        <link href="/static/style.css" rel="stylesheet" />
-        <title>七単位</title>
-        <body>
-          <header>
-            <a href="/">top</a> &nbsp;
-            <a href="/foo">foo</a> &nbsp;
-            <a href="/posts">posts</a>
-          </header>
-          <main>{children}</main>
-        </body>
-      </html>
-    );
-  }),
+  jsxRenderer(({ children }) => <Layout>{children}</Layout>),
 );
 
-app.get("/", (c) => {
-  return c.render(<h1>Hello Hono🔥</h1>);
-});
+app.get("/", (c) => c.render(<Index />));
+app.get("/history", (c) => c.render(<History />));
+app.get("/works", (c) => c.render(<Works />));
 
-app.get("/foo", (c) => {
-  return c.render(<h1>Foo</h1>);
-});
-
-type Post = {
-  id: string;
-};
-
-const posts: Post[] = [{ id: "hello" }, { id: "morning" }, { id: "night" }];
-
-app.get("/posts", (c) => {
+app.get("/works", (c) => {
   return c.render(
     <ul>
-      {posts.map((post) => {
-        return (
-          <li>
-            <a href={`/posts/${post.id}`}>{post.id}</a>
-          </li>
-        );
+      {works.map((work) => {
+        return <Work work={work} />;
       })}
     </ul>,
   );
 });
 
 app.get(
-  "/posts/:id",
-  ssgParams(() => posts),
+  "/works/:slug",
+  ssgParams(() => works.map((work) => ({ slug: work.slug }))),
   (c) => {
-    return c.render(<h1>{c.req.param("id")}</h1>);
+    const slug = c.req.param("slug");
+    const work = works.find((work) => work.slug === slug);
+    if (!work) {
+      return c.redirect("/404");
+    }
+    return c.render(<Work work={work} />);
   },
 );
 
