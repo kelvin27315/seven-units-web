@@ -9,11 +9,7 @@ export const Index = () => (
         {works.map((work) => (
           <>
             <a href={`/works/${work.slug}`}>
-              <img
-                src={`/static/${work.imageName}`}
-                alt={work.imageName}
-                id="seal"
-              />
+              <img src={work.imageURL.toString()} alt={work.title} id="seal" />
             </a>
             <li>
               <a href={`/works/${work.slug}`}>{work.title}</a>

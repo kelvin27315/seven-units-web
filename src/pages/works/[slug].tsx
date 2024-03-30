@@ -6,7 +6,7 @@ interface props {
 
 export const Work = ({ work }: props) => (
   <>
-    <img src={`/static/${work.imageName}`} alt={work.title} />
+    <img src={work.imageURL.toString()} alt={work.title} />
     <ul>
       <li>Title: {work.title}</li>
       <li>
