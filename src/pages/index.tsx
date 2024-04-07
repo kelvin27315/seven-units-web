@@ -1,7 +1,8 @@
+import { css } from "hono/css";
 import { works } from "../data/work";
 
 export const Index = () => (
-  <>
+  <div class={topStyle}>
     <div id="hidari">
       <h1>コンテンツ</h1>
       <h3>作品</h3>
@@ -37,5 +38,18 @@ export const Index = () => (
         </li>
       </ul>
     </div>
-  </>
+  </div>
 );
+
+const topStyle = css`
+  display: flex;
+  #hidari{
+    float: left;
+    width: 67%;
+    padding-left: 3%;
+  }
+  #migi{
+    float: right;
+    width: 30%;
+  }
+`;
