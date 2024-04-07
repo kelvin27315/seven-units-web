@@ -28,4 +28,11 @@ export const events: Event[] = [
     url: new URL("https://meikasai.com/"),
     image: new URL("https://meikasai.com/img/bn.png"),
   },
+  {
+    name: "博麗神社例大祭",
+    url: new URL("https://reitaisai.com/"),
+    image: new URL(
+      "https://reitaisai.com/wp-content/uploads/2015/04/reitaisai_banner.png",
+    ),
+  },
 ].sort((a, b) => a.name.localeCompare(b.name, "ja"));
