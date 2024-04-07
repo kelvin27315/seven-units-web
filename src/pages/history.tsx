@@ -1,3 +1,6 @@
+import { css } from "hono/css";
+import { events } from "../data/event";
+
 export const History = () => (
   <>
     <h1>活動履歴</h1>
@@ -16,5 +19,43 @@ export const History = () => (
       <li>2017年10月22日: 東方紅楼夢（第13回）</li>
       <li>2017年03月26日: 御阿礼祭 -鈴奈-（第4回）</li>
     </ul>
+    <h2>参加イベント リンク集</h2>
+    <ul class={eventsStyle}>
+      {events.map((event) => (
+        <li>
+          {event.url ? (
+            <div>
+              <a href={event.url.toString()}>{event.name}</a>
+              {event.image && (
+                <a href={event.url.toString()} class={"banner"}>
+                  <img src={event.image?.toString()} alt={event.name} />
+                </a>
+              )}
+            </div>
+          ) : (
+            <div>{event.name}</div>
+          )}
+        </li>
+      ))}
+    </ul>
   </>
 );
+
+const eventsStyle = css`
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  li{
+    div{
+      display: flex;
+      text-align: center;
+      align-items: center;
+      gap: 1.5em;
+      .banner{
+        img{
+          width: 200px;
+        }
+      }
+    }
+  }
+`;
