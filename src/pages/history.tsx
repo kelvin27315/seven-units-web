@@ -9,7 +9,7 @@ export const History = () => (
     <ul>
       {histories.map((history) => (
         <li>
-          {history.date.getFullYear()}年{history.date.getMonth() + 1}月
+          {history.date.getFullYear()}年{history.date.getMonth()}月
           {history.date.getDate()}日:{" "}
           {history.attendance ? (
             <>{history.title}</>
