@@ -1,3 +1,4 @@
+import { Fragment } from "hono/jsx";
 import { works } from "../../data/work";
 
 export const Index = () => (
@@ -12,14 +13,14 @@ export const Index = () => (
     </ul>
     <ul>
       {works.map((work) => (
-        <>
+        <Fragment key={work.slug}>
           <a href={`/works/${work.slug}`}>
             <img src={work.imageURL.toString()} alt={work.title} id="seal" />
           </a>
           <li>
             <a href={`/works/${work.slug}`}>{work.title}</a>
           </li>
-        </>
+        </Fragment>
       ))}
     </ul>
   </>

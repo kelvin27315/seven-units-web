@@ -1,4 +1,5 @@
 import { Hono } from "hono";
+import { Fragment } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { ssgParams } from "hono/ssg";
 import { Layout } from "./components/Layout";
@@ -22,9 +23,11 @@ app.get("/works", (c) => c.render(<Works />));
 app.get("/works", (c) => {
   return c.render(
     <ul>
-      {works.map((work) => {
-        return <Work work={work} />;
-      })}
+      {works.map((work) => (
+        <Fragment key={work.slug}>
+          <Work work={work} />
+        </Fragment>
+      ))}
     </ul>,
   );
 });
