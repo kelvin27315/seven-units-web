@@ -1,4 +1,5 @@
 import { css } from "hono/css";
+import { Fragment } from "hono/jsx";
 import { works } from "../data/work";
 
 export const Index = () => (
@@ -8,14 +9,14 @@ export const Index = () => (
       <h3>作品</h3>
       <ul>
         {works.map((work) => (
-          <>
+          <Fragment key={work.slug}>
             <a href={`/works/${work.slug}`}>
               <img src={work.imageURL.toString()} alt={work.title} id="seal" />
             </a>
             <li>
               <a href={`/works/${work.slug}`}>{work.title}</a>
             </li>
-          </>
+          </Fragment>
         ))}
       </ul>
       <a href="/works">すべて見る</a>
