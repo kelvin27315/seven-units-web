@@ -6,7 +6,7 @@
     "preview": "wrangler pages dev ./dist",
     "deploy": "$npm_execpath run build && wrangler pages deploy ./dist",
     "check": "biome check ./",
-    "fix": "biome check --apply ./"
+    "fix": "biome check --write ./"
   },
   "private": true,
   "dependencies": {
