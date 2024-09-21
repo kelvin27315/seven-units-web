@@ -15,8 +15,8 @@ export const events: Event[] = [
   },
   {
     name: "鈴奈幻想絵巻",
-    url: new URL("https://main-suzuna-gensou.ssl-lolipop.jp/"),
-    image: new URL("https://main-suzuna-gensou.ssl-lolipop.jp/banner_s.png"),
+    url: new URL("https://suzuna-gensou.main.jp/"),
+    image: new URL("https://suzuna-gensou.main.jp/banner_s.png"),
   },
   {
     name: "求代目の紅茶会",
