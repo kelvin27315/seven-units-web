@@ -8,6 +8,13 @@ export type Work = {
 
 export const works: Work[] = [
   {
+    slug: "tobidashi_akyu",
+    title: "飛び出し阿求",
+    imageURL: new URL("https://images.seven-units.net/tobidashi_akyu.jpg"),
+    date: new Date(2024, 9, 23),
+    pixivURL: new URL("https://www.pixiv.net/artworks/122648727"),
+  },
+  {
     slug: "q",
     title: "Q",
     imageURL: new URL("https://images.seven-units.net/q.jpg"),
