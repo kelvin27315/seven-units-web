@@ -70,4 +70,9 @@ export const histories: history[] = [
     date: new Date(2023, 11, 12),
     attendance: true,
   },
+  {
+    title: "求代目の紅茶会（第13回）",
+    date: new Date(2024, 9, 23),
+    attendance: true,
+  },
 ].sort((a, b) => b.date.getTime() - a.date.getTime());
