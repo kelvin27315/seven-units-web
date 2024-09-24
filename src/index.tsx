@@ -1,5 +1,4 @@
 import { Hono } from "hono";
-import { Fragment } from "hono/jsx";
 import { jsxRenderer } from "hono/jsx-renderer";
 import { ssgParams } from "hono/ssg";
 import { Layout } from "./components/Layout";
@@ -11,7 +10,7 @@ import { Work } from "./pages/works/[slug]";
 
 const app = new Hono();
 
-app.all(
+app.use(
   "*",
   jsxRenderer(({ children }) => <Layout>{children}</Layout>),
 );
@@ -19,18 +18,6 @@ app.all(
 app.get("/", (c) => c.render(<Index />));
 app.get("/history", (c) => c.render(<History />));
 app.get("/works", (c) => c.render(<Works />));
-
-app.get("/works", (c) => {
-  return c.render(
-    <ul>
-      {works.map((work) => (
-        <Fragment key={work.slug}>
-          <Work work={work} />
-        </Fragment>
-      ))}
-    </ul>,
-  );
-});
 
 app.get(
   "/works/:slug",
