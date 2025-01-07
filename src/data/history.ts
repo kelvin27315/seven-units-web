@@ -75,4 +75,14 @@ export const histories: history[] = [
     date: new Date(2024, 9, 23),
     attendance: true,
   },
+  {
+    title: "御阿礼祭 -鈴奈-",
+    date: new Date(2025, 2, 8),
+    attendance: true,
+  },
+  {
+    title: "第二回博麗神社例大祭 in 静岡",
+    date: new Date(2025, 3, 23),
+    attendance: true,
+  },
 ].sort((a, b) => b.date.getTime() - a.date.getTime());
