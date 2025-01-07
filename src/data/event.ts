@@ -7,6 +7,7 @@ export type Event = {
 export const events: Event[] = [
   {
     name: "御阿礼祭 -鈴奈-",
+    url: new URL("https://miaresai.wixsite.com/aqsz"),
   },
   {
     name: "東方紅楼夢",
