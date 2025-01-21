@@ -18,7 +18,7 @@
     "@hono/vite-cloudflare-pages": "^0.4.2",
     "@hono/vite-dev-server": "^0.18.1",
     "@hono/vite-ssg": "^0.1.1",
-    "vite": "^6.0.9",
+    "vite": "^6.0.11",
     "wrangler": "^3.103.2"
   },
   "volta": {
