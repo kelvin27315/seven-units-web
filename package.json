@@ -19,7 +19,7 @@
     "@hono/vite-dev-server": "^0.18.1",
     "@hono/vite-ssg": "^0.1.1",
     "vite": "^6.1.1",
-    "wrangler": "^3.109.2"
+    "wrangler": "^3.109.3"
   },
   "volta": {
     "node": "20.11.1"
