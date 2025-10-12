@@ -10,7 +10,7 @@
   },
   "private": true,
   "dependencies": {
-    "hono": "^4.9.10"
+    "hono": "^4.9.11"
   },
   "devDependencies": {
     "@biomejs/biome": "1.9.4",
